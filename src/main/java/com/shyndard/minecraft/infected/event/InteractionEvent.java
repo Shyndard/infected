@@ -1,8 +1,11 @@
 package com.shyndard.minecraft.infected.event;
 
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -37,5 +40,15 @@ public class InteractionEvent implements Listener {
     @EventHandler
     public void onPlayerRespawn(final PlayerRespawnEvent event) {
         event.setRespawnLocation(Infected.get().onPlayerRespawn(event.getPlayer()));
+    }
+
+    @EventHandler
+    public void onBreakBlock(final BlockBreakEvent event) {
+        event.setCancelled(event.getPlayer().getGameMode() != GameMode.CREATIVE || !event.getPlayer().isOp());
+    }
+
+    @EventHandler
+    public void onBreakBlock(final BlockPlaceEvent event) {
+        event.setCancelled(event.getPlayer().getGameMode() != GameMode.CREATIVE || !event.getPlayer().isOp());
     }
 }
