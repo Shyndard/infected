@@ -12,11 +12,13 @@ public class ConnectionEvent implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Infected.get().addPlayer(event.getPlayer());
+        event.joinMessage(null);
     }
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
         Infected.get().removePlayer(event.getPlayer());
+        event.quitMessage(null);
     }
 
 }

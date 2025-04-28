@@ -3,3 +3,7 @@ version: 1.0.0
 main: com.shyndard.minecraft.infected.PluginApp
 author: Shyndard
 api-version: '1.21.4'
+commands:
+  infected:
+    description: Infected command
+    usage: /<command> <setlobby|setspawn|settimer>
