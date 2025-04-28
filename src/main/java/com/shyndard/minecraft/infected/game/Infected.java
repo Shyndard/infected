@@ -266,7 +266,7 @@ public class Infected {
     }
 
     public void broadcast(final Component message) {
-        // Do not send non "infected" players a message
+        // Do not send non "infected" game players a message
         players.forEach(player -> player.sendMessage(message));
     }
 

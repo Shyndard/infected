@@ -4,7 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.shyndard.minecraft.command.InfectedCmd;
+import com.shyndard.minecraft.infected.command.InfectedCmd;
 import com.shyndard.minecraft.infected.event.ConnectionEvent;
 import com.shyndard.minecraft.infected.event.InteractionEvent;
 import com.shyndard.minecraft.infected.game.BossBarUtils;

@@ -1,4 +1,4 @@
-package com.shyndard.minecraft.command;
+package com.shyndard.minecraft.infected.command;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -81,6 +81,7 @@ public class InfectedCmd implements CommandExecutor {
 
     private void displayHelp(final CommandSender sender) {
         sender.sendMessage("Infected commands:");
+        sender.sendMessage("/infected reload - Reload the plugin configuration.");
         sender.sendMessage("/infected setlobby - Set the lobby spawn point.");
         sender.sendMessage(
                 "/infected setspawn <map> <zombie|survivor|lobby> - Set the spawn point for the specified map.");
