@@ -7,11 +7,13 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Color;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import lombok.Getter;
@@ -170,10 +172,18 @@ public class Infected {
                 TextColor.color(255, 0, 0)));
         player.teleport(getZombieSpawn());
         // Give full green leather armor
-        player.getInventory().setHelmet(ItemStack.of(Material.LEATHER_HELMET));
-        player.getInventory().setChestplate(ItemStack.of(Material.LEATHER_CHESTPLATE));
-        player.getInventory().setLeggings(ItemStack.of(Material.LEATHER_LEGGINGS));
-        player.getInventory().setBoots(ItemStack.of(Material.LEATHER_BOOTS));
+        player.getInventory().setHelmet(getGreenItem(Material.LEATHER_HELMET));
+        player.getInventory().setChestplate(getGreenItem(Material.LEATHER_CHESTPLATE));
+        player.getInventory().setLeggings(getGreenItem(Material.LEATHER_LEGGINGS));
+        player.getInventory().setBoots(getGreenItem(Material.LEATHER_BOOTS));
+    }
+
+    private ItemStack getGreenItem(final Material material) {
+        var item = ItemStack.of(material);
+        LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
+        meta.setColor(Color.GREEN);
+        item.setItemMeta(meta);
+        return item;
     }
 
     private void startSurvivor(final Player player) {
